@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    API Reference
+  
+</title>
+
+<meta name="description" content="This is a description of the APIs for authoring visualizations in SKQW. For a general overview, see the dev guide.
+skqw objectThe skqw object is passed as the first argument of each of the lifecycle f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="API Reference">
+<meta property="og:url" content="http://localhost/api-reference/index.html">
+<meta property="og:site_name" content="SKQW">
+<meta property="og:description" content="This is a description of the APIs for authoring visualizations in SKQW. For a general overview, see the dev guide.
+skqw objectThe skqw object is passed as the first argument of each of the lifecycle f">
+<meta property="og:updated_time" content="2016-08-20T05:40:43.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Reference">
+<meta name="twitter:description" content="This is a description of the APIs for authoring visualizations in SKQW. For a general overview, see the dev guide.
+skqw objectThe skqw object is passed as the first argument of each of the lifecycle f">
+
+
+  <link rel="alternative" href="/atom.xml" title="SKQW" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">SKQW</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <a href="/">
+      <img src="/images/logo-line.svg" class="sidebar-logo">
+    </a>
+    <div class="info">
+      <div class="content">
+        
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    
+    
+    <ul class="nav">
+      
+      
+
+      
+      <li class="section-title">
+        <span>User Guide</span>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
+        <a href="/getting-started" title="Getting Started">Getting Started</a>
+      </li>
+      
+      
+      
+    </ul>
+    
+    <ul class="nav">
+      
+      
+
+      
+      <li class="section-title">
+        <span>Developer Guide</span>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
+        <a href="/developer-guide-getting-started" title="Getting Started">Getting Started</a>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
+        <a href="/api-reference" title="API Reference">API Reference</a>
+      </li>
+      
+      
+      
+    </ul>
+    
+    <ul class="nav">
+      
+      
+
+      
+      <li>
+        <a href="https://github.com/michaelbromley/skqw" title="Github" target="_blank" rel="external">Github</a>
+      </li>
+      
+      
+      
+    </ul>
+    
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 800px">
+      
+          <article id="page-undefined" class="article article-type-page">
+  
+    <h1 class="article-header">
+      API Reference
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  Updated: 2016-08-20
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <p>This is a description of the APIs for authoring visualizations in SKQW. For a general overview, see the <a href="../developer-guide-getting-started">dev guide</a>.</p>
+<h2 id="skqw-object"><a href="#skqw-object" class="headerlink" title="skqw object"></a><code>skqw</code> object</h2><p>The <code>skqw</code> object is passed as the first argument of each of the lifecycle functions (see Visualization interface below). </p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> ISkqw &#123;</div><div class="line">    createCanvas: (domElement?: HTMLCanvasElement) =&gt; HTMLCanvasElement;</div><div class="line">    dimensions: &#123;</div><div class="line">        width: <span class="built_in">number</span>;</div><div class="line">        height: <span class="built_in">number</span>;</div><div class="line">    &#125;;</div><div class="line">    sample: &#123;</div><div class="line">        ts: <span class="built_in">number</span>[];</div><div class="line">        ft: <span class="built_in">number</span>[];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="skqw-createCanvas"><a href="#skqw-createCanvas" class="headerlink" title="skqw.createCanvas()"></a><code>skqw.createCanvas()</code></h4><p>If called with no arguments, it will create a new <code>&lt;canvas&gt;</code> element and return it.</p>
+<p>Alternatively you may create the canvas element yourself, and pass it as an argument to <code>createCanvas()</code>. This is useful, for example, when using a library such as Three.js, which will provide you with a canvas element itself, which can then be handed over to SKQW.</p>
+<h4 id="skqw-dimensions-width"><a href="#skqw-dimensions-width" class="headerlink" title="skqw.dimensions.width"></a><code>skqw.dimensions.width</code></h4><p>The width of the canvas in pixels.</p>
+<h4 id="skqw-dimensions-height"><a href="#skqw-dimensions-height" class="headerlink" title="skqw.dimensions.height"></a><code>skqw.dimensions.height</code></h4><p>The height of the canvas in pixels.</p>
+<h4 id="skqw-sample-ts"><a href="#skqw-sample-ts" class="headerlink" title="skqw.sample.ts"></a><code>skqw.sample.ts</code></h4><p>An array of numbers representing the time series of the audio sample (time domain). Also known as a waveform.</p>
+<h4 id="skqw-sample-ft"><a href="#skqw-sample-ft" class="headerlink" title="skqw.sample.ft"></a><code>skqw.sample.ft</code></h4><p>An array of numbers representing the fast fourier transform of the signal (frequency domain). Also known as a frequency spectrum.</p>
+<h2 id="Visualization-Interfaces"><a href="#Visualization-Interfaces" class="headerlink" title="Visualization Interfaces"></a>Visualization Interfaces</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">interface</span> IVisualization &#123;</div><div class="line">    name: <span class="built_in">string</span>;</div><div class="line">    init: (skqw: ISkqw) =&gt; <span class="built_in">void</span>;</div><div class="line">    tick: (skqw: ISkqw, timestamp: <span class="built_in">number</span>) =&gt; <span class="built_in">void</span>;</div><div class="line">    resize?: (skqw: ISkqw) =&gt; <span class="built_in">void</span>;</div><div class="line">    destroy?: (skqw: ISkqw) =&gt; <span class="built_in">void</span>;</div><div class="line">    paramChange?: (skqw: ISkqw, change: IParamUpdate) =&gt; <span class="built_in">void</span>;</div><div class="line">    params?: &#123; [name: <span class="built_in">string</span>]: IParameter &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">interface</span> IParameter &#123;</div><div class="line">    value: <span class="built_in">number</span> | <span class="built_in">boolean</span>;</div><div class="line">    <span class="keyword">type</span>: <span class="string">'range'</span> | <span class="string">'boolean'</span>;</div><div class="line">    label: <span class="built_in">string</span>;</div><div class="line">    min?: <span class="built_in">number</span>;</div><div class="line">    max?: <span class="built_in">number</span>;</div><div class="line">    step?: <span class="built_in">number</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">interface</span> IParamUpdate &#123;</div><div class="line">    paramKey: <span class="built_in">string</span>;</div><div class="line">    newValue: <span class="built_in">number</span> | <span class="built_in">boolean</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="visualization-name"><a href="#visualization-name" class="headerlink" title="visualization.name"></a><code>visualization.name</code></h4><p>The name which will be displayed in the app UI.</p>
+<h4 id="visualization-init-skqw"><a href="#visualization-init-skqw" class="headerlink" title="visualization.init(skqw)"></a><code>visualization.init(skqw)</code></h4><p>Called once when the visualization is selected in the UI.</p>
+<h4 id="visualization-tick-skqw-timestamp"><a href="#visualization-tick-skqw-timestamp" class="headerlink" title="visualization.tick(skqw, timestamp)"></a><code>visualization.tick(skqw, timestamp)</code></h4><p>Called for each frame of the visualization animation, roughly 60 times per second. The <code>timestamp</code> is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp" target="_blank" rel="external">DOMHighResTimeStamp</a> provided by the <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank" rel="external">requestAnimationFrame()</a> method which is used internally.</p>
+<h4 id="visualization-resize-skqw"><a href="#visualization-resize-skqw" class="headerlink" title="visualization.resize(skqw)"></a><code>visualization.resize(skqw)</code></h4><p>Called whenever the app window is resized.</p>
+<h4 id="visualization-destroy-skqw"><a href="#visualization-destroy-skqw" class="headerlink" title="visualization.destroy(skqw)"></a><code>visualization.destroy(skqw)</code></h4><p>Called just before unloading the visualization, as when a different visualization is selected in the UI.</p>
+<h4 id="visualization-paramChange-skqw-change"><a href="#visualization-paramChange-skqw-change" class="headerlink" title="visualization.paramChange(skqw, change)"></a><code>visualization.paramChange(skqw, change)</code></h4><p>Called whenever the user changes a param in the UI.</p>
+<h4 id="visualization-params"><a href="#visualization-params" class="headerlink" title="visualization.params"></a><code>visualization.params</code></h4><p>An object describing the user-configurable parameters which may be changed at run time to alter the way the visualization renders.</p>
+
+  </div>
+  <footer class="article-footer">
+
+  </footer>
+</article>
+
+
+          <div class="main-footer">
+    © 2016 Michael Bromley - Powered by <a href="http://hexo.io" target="_blank">Hexo</a>
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+</body>
+</html>
