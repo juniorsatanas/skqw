@@ -188,10 +188,6 @@ a {
 a:hover {
   color: #38d43e;
 }
-.header-logo {
-  width: 100%;
-  max-width: 600px;
-}
 html,
 body {
   position: absolute;
@@ -237,6 +233,127 @@ body {
     padding: 10px 10px;
   }
 }
+.header-logo svg {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+.header-logo svg path:nth-child(1) {
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(2) {
+  animation-delay: 0.2s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(3) {
+  animation-delay: 0.4s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(4) {
+  animation-delay: 0.6s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(5) {
+  animation-delay: 0.8s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(6) {
+  animation-delay: 1s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(7) {
+  animation-delay: 1.2s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(8) {
+  animation-delay: 1.4s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.header-logo svg path:nth-child(9) {
+  animation-delay: 1.6s;
+  animation-duration: 3s;
+  animation-name: cycle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+@-moz-keyframes cycle {
+  0% {
+    fill: rgba(62,231,191,0.3);
+  }
+  50% {
+    fill: rgba(62,231,255,0.3);
+  }
+  100% {
+    fill: rgba(0,169,255,0.3);
+  }
+}
+@-webkit-keyframes cycle {
+  0% {
+    fill: rgba(62,231,191,0.3);
+  }
+  50% {
+    fill: rgba(62,231,255,0.3);
+  }
+  100% {
+    fill: rgba(0,169,255,0.3);
+  }
+}
+@-o-keyframes cycle {
+  0% {
+    fill: rgba(62,231,191,0.3);
+  }
+  50% {
+    fill: rgba(62,231,255,0.3);
+  }
+  100% {
+    fill: rgba(0,169,255,0.3);
+  }
+}
+@keyframes cycle {
+  0% {
+    fill: rgba(62,231,191,0.3);
+  }
+  50% {
+    fill: rgba(62,231,255,0.3);
+  }
+  100% {
+    fill: rgba(0,169,255,0.3);
+  }
+}
 .main-footer {
   font-size: 13px;
   color: #808080;
@@ -253,9 +370,19 @@ body {
   color: #fff;
   text-align: right;
 }
-.sidebar .sidebar-logo {
-  max-width: 200px;
+.sidebar svg.logo {
+  width: 200px;
+  height: 65px;
   margin: 20px 20px 0 0;
+}
+.sidebar svg.logo path {
+  fill: rgba(0,0,0,0);
+  stroke: #46beb4;
+  transition: fill 1.2s, stroke 0.5s;
+}
+.sidebar svg.logo:hover path {
+  fill: rgba(65,238,155,0.1);
+  stroke: #00fff3;
 }
 .sidebar .title {
   margin-bottom: 0px;
@@ -782,6 +909,9 @@ pre .javascript .function {
 }
 .mobile-header {
   display: none;
+}
+.mobile-header-logo {
+  max-height: 38px;
 }
 @media screen and (max-width: 768px) {
   .mobile-header {
