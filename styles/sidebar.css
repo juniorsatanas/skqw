@@ -70,9 +70,7 @@
   border-right: 5px solid transparent;
 }
 .sidebar .nav > li > a:hover {
-  background-color: #808080;
-  color: #fff;
-  border-right: 5px solid #d3d3d3;
+  color: #07c886;
 }
 .sidebar .nav > li.section-title {
   padding: 9px 25px;

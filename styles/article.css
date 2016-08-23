@@ -44,6 +44,11 @@
   line-height: line-height;
   text-align: justify;
 }
+.article .article-entry h2 {
+  border-bottom: 1px solid #c0e2c0;
+  margin-top: 50px;
+  padding-bottom: 12px;
+}
 .article .article-entry code {
   background-color: #f1f1f1;
   border-radius: 2px;
