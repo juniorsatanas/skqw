@@ -1,3 +1,6 @@
+.header-logo {
+  text-align: center;
+}
 .header-logo svg {
   width: 100%;
   height: auto;
@@ -74,6 +77,17 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-fill-mode: both;
+}
+.header-logo .version {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #96cada;
+  margin-top: -30px;
+  text-align: center;
+  letter-spacing: 1.5em;
+}
+.yt-video {
+  text-align: center;
 }
 @-moz-keyframes cycle {
   0% {

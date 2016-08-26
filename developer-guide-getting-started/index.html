@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://michaelbromley.github.io/skqw/developer-guide-getting-started/index.html">
 <meta property="og:site_name" content="SKQW">
 <meta property="og:description" content="A visualization in SKQW is a JavaScript module in the commonjs format. Since SKQW is implemented on top of the Electron platform, which uses recent versions of Node and Chrome, you are free to use (mo">
-<meta property="og:updated_time" content="2016-08-21T13:08:46.897Z">
+<meta property="og:updated_time" content="2016-08-26T06:58:26.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Developer Guide: Getting Started">
 <meta name="twitter:description" content="A visualization in SKQW is a JavaScript module in the commonjs format. Since SKQW is implemented on top of the Electron platform, which uses recent versions of Node and Chrome, you are free to use (mo">
@@ -102,6 +102,15 @@
       
       
       
+      
+
+      
+      <li>
+        <a href="/skqw/how-to" title="How To Guides">How To Guides</a>
+      </li>
+      
+      
+      
     </ul>
     
     <ul class="nav">
@@ -128,6 +137,24 @@
 
       
       <li>
+        <a href="/skqw/parameters" title="Parameters">Parameters</a>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
+        <a href="/skqw/using-three-js" title="Using Three.js">Using Three.js</a>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
         <a href="/skqw/api-reference" title="API Reference">API Reference</a>
       </li>
       
@@ -140,8 +167,26 @@
       
 
       
+      <li class="section-title">
+        <span>Links</span>
+      </li>
+      
+      
+      
+      
+
+      
       <li>
-        <a href="https://github.com/michaelbromley/skqw" title="Github" target="_blank" rel="external">Github</a>
+        <a href="https://github.com/michaelbromley/skqw" title="SKQW on Github" target="_blank" rel="external">SKQW on Github</a>
+      </li>
+      
+      
+      
+      
+
+      
+      <li>
+        <a href="https://twitter.com/michlbrmly" title="@michlbrmly" target="_blank" rel="external">@michlbrmly</a>
       </li>
       
       
@@ -166,7 +211,7 @@
 
   <div class="article-info">
     <span class="article-date">
-  Updated: 2016-08-21
+  Updated: 2016-08-26
 </span>
 
     
@@ -179,9 +224,9 @@
 <h2 id="File-Location-amp-Naming"><a href="#File-Location-amp-Naming" class="headerlink" title="File Location &amp; Naming"></a>File Location &amp; Naming</h2><p>A visualization main file must be located in a subdirectory of the “library path” (as set in the UI), and must be named “index.js”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// &quot;visualizations&quot; is set as the library path in the app.</div><div class="line"></div><div class="line">- visualizations/</div><div class="line">    |</div><div class="line">    |- myVis/</div><div class="line">    |   |- index.js</div><div class="line">    |</div></pre></td></tr></table></figure>
 <h2 id="Basic-Example"><a href="#Basic-Example" class="headerlink" title="Basic Example"></a>Basic Example</h2><p>Here is a bare-bones visualization:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// canvas context.</span></div><div class="line"><span class="keyword">let</span> ctx;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">skqw</span>) </span>&#123;</div><div class="line">    ctx = skqw.createCanvas().getContext(<span class="string">'2d'</span>);</div><div class="line">    ctx.fillStyle = <span class="string">`hsla(0, 50%, 50%, 0.8)`</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params">skqw</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> &#123; width, height &#125; = skqw.dimensions;</div><div class="line">    <span class="keyword">const</span> ft = skqw.sample.ft;</div><div class="line"></div><div class="line">    <span class="comment">// clear the canvas.</span></div><div class="line">    ctx.fillStyle = <span class="string">'rgba(0, 0, 0, 1)'</span>;</div><div class="line">    ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    </div><div class="line">    <span class="comment">// draw the visualization frame</span></div><div class="line">    drawBars(width, height, ft);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawBars</span>(<span class="params">w, h, ft</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> length = ft.length;</div><div class="line">    <span class="keyword">const</span> width = w / length;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; ft.length; i++) &#123;</div><div class="line">        <span class="keyword">const</span> height = ft[i] * <span class="number">250</span>;</div><div class="line">        <span class="keyword">const</span> x = i * width;</div><div class="line">        <span class="keyword">const</span> y = h - height;</div><div class="line">        ctx.fillRect(x, y, width - <span class="number">2</span>, height);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    name: <span class="string">'Simple Example'</span>,</div><div class="line">    init,</div><div class="line">    tick</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// canvas context.</span></div><div class="line"><span class="keyword">let</span> ctx;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">skqw</span>) </span>&#123;</div><div class="line">    ctx = skqw.createCanvas().getContext(<span class="string">'2d'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params">skqw</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> &#123; width, height &#125; = skqw.dimensions;</div><div class="line">    <span class="keyword">const</span> ft = skqw.sample.ft;</div><div class="line"></div><div class="line">    <span class="comment">// clear the canvas.</span></div><div class="line">    ctx.fillStyle = <span class="string">'rgba(0, 0, 0, 1)'</span>;</div><div class="line">    ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    </div><div class="line">    <span class="comment">// draw the visualization frame</span></div><div class="line">    drawBars(width, height, ft);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawBars</span>(<span class="params">w, h, ft</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> length = ft.length;</div><div class="line">    <span class="keyword">const</span> width = w / length;</div><div class="line">    </div><div class="line">    <span class="comment">// The bars will be red</span></div><div class="line">    ctx.fillStyle = <span class="string">`hsla(0, 50%, 50%, 0.8)`</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; ft.length; i++) &#123;</div><div class="line">        <span class="keyword">const</span> height = ft[i] * <span class="number">250</span>;</div><div class="line">        <span class="keyword">const</span> x = i * width;</div><div class="line">        <span class="keyword">const</span> y = h - height;</div><div class="line">        ctx.fillRect(x, y, width - <span class="number">2</span>, height);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    name: <span class="string">'Simple Example'</span>,</div><div class="line">    init,</div><div class="line">    tick</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>The code above will display a simple frequency spectrum of red bars. Let’s take a look at each of the basic parts:</p>
-<h4 id="init-function"><a href="#init-function" class="headerlink" title="init() function"></a><code>init()</code> function</h4><p>Every visualization <em>must</em> export an <code>init()</code> function. This function will be called once each time the visualization is selected in SKQW. It is used to set up the canvas as well as any other set-up your code may require. In this case we have SKQW create a new canvas for us to drawto, and save a reference to the canvas’ <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="_blank" rel="external">context object</a>. Then we set the fillStyle property, since we don’t plan to change it in this simple example.</p>
+<h4 id="init-function"><a href="#init-function" class="headerlink" title="init() function"></a><code>init()</code> function</h4><p>Every visualization <em>must</em> export an <code>init()</code> function. This function will be called once each time the visualization is selected in SKQW. It is used to set up the canvas as well as any other set-up your code may require. In this case we have SKQW create a new canvas for us to draw to, and save a reference to the canvas’ <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="_blank" rel="external">context object</a>. </p>
 <h4 id="skqw-object"><a href="#skqw-object" class="headerlink" title="skqw object"></a><code>skqw</code> object</h4><p>This object is passed as the first parameter to each of the visualization lifecycle functions. It has a single method, <code>createCanvas()</code>, which<br>will create an HTML canvas element which we can then draw on to.</p>
 <p>It additionally has two properties: </p>
 <ul>
@@ -196,24 +241,6 @@
 <h4 id="tick-function"><a href="#tick-function" class="headerlink" title="tick() function"></a><code>tick()</code> function</h4><p>This is a required function which will be called every time a new audio sample arrives from the sound card, roughly 60 times per second. This is<br>where the magic happens! The <code>tick</code> function is responsible for rendering each individual frame of your visualization.</p>
 <p>In our example, we first clear the canvas by drawing a big black rectangle over whatever was there before, and then we call a function which will<br>iterate over each value in the <code>sample.ft</code> array, and represent it as a red bar whose height is proportional to the value of that frequency.</p>
 <h4 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a><code>module.exports</code></h4><p>Finally, we export the required information as a <a href="https://nodejs.org/docs/latest/api/modules.html" target="_blank" rel="external">Node commonjs</a> module. There are more functions and properties which SKQW can read (see the <a href="../api-reference">API docs</a>), which lets us write richer visualizations, but the three shown are the bare minimum required for things to work.</p>
-<h2 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h2><p>It is possible to make certain aspects of a visualization configurable at run-time by the user. To do this we need to use parameters.</p>
-<p>Here’s an example:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> params = &#123;</div><div class="line">    hue: &#123;</div><div class="line">        value: <span class="number">120</span>,</div><div class="line">        type: <span class="string">'range'</span>,</div><div class="line">        label: <span class="string">'Hue'</span>,</div><div class="line">        min: <span class="number">0</span>,</div><div class="line">        max: <span class="number">360</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// ... init() function omitted</span></div><div class="line"></div><div class="line">tick(skqw) &#123;</div><div class="line">    <span class="comment">// ... code omitted</span></div><div class="line">    ctx.fillStyle = <span class="string">`hsl(<span class="subst">$&#123;params.hue.value&#125;</span>, 50%, 50%)`</span>;</div><div class="line">    <span class="comment">// draw some stuff with the given hue.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">paramChange</span>(<span class="params">skqw, change</span>) </span>&#123;</div><div class="line">    params[change.paramKey].value = change.newValue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    name: <span class="string">'Params Example'</span>,</div><div class="line">    init,</div><div class="line">    tick,</div><div class="line">    paramChange,</div><div class="line">    params</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>Let’s walk through each of the new concepts introduced here:</p>
-<h4 id="params-object"><a href="#params-object" class="headerlink" title="params object"></a><code>params</code> object</h4><p>The <code>params</code> object is where we define our user-configurable parameters. Each object will be represented by a UI control in the settings panel of the SKQW user interface. In this example, we want to enable the user to set the hue (colour) of some element in our visualization.</p>
-<p>The <code>value</code>, <code>type</code>, and <code>label</code> properties are required:</p>
-<ul>
-<li><code>value</code> is the actual value of the parameter.</li>
-<li><code>type</code> determines the type of UI control that will be rendered to<br>control this param. Currently only “range” and “boolean” are supported,<br>which will render a slider or a checkbox respectively.</li>
-<li><code>label</code> is the label associated with the control in the UI. This is what<br>the user sees.</li>
-</ul>
-<p>Additionally, with a “range” type, we may also specify optional <code>min</code>,<br><code>max</code>, and <code>step</code> properties which control the behaviour of the slider<br>control.</p>
-<h4 id="paramChange-function"><a href="#paramChange-function" class="headerlink" title="paramChange() function"></a><code>paramChange()</code> function</h4><p>This function is called every time the user changes the value of a param in the UI. The second argument is an object consisting of two properties:</p>
-<ul>
-<li><code>paramKey</code> is the key of the param that was changed. In this case it would be “hue”. </li>
-<li><code>newValue</code> is the new value assigned by the user.</li>
-</ul>
-<p>Finally, we need to ensure we export <code>params</code> and <code>paramChange</code> so that SKQW knows about them.</p>
 <h2 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>Now you should know enough to start playing around with SKQW visualizations and creating some cool visuals!</p>
 <p>There are a few more parts of the API not covered above. For a full rundown of all APIs, see the <a href="../api-reference">API Reference</a>.</p>
 <p>Another way to learn is to take a look at the <a href="https://github.com/michaelbromley/skqw-library" target="_blank" rel="external">source code of the standard library of visualizations</a>. </p>
