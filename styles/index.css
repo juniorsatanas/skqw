@@ -86,6 +86,39 @@
   text-align: center;
   letter-spacing: 1.5em;
 }
+.hero {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  color: #19653d;
+  border-bottom: 1px solid #a5ffc7;
+}
+.hero h3 {
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  font-size: 1.5em;
+}
+.hero .download-button {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #19653d;
+  background-color: #b3f7ff;
+  box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.44);
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: background 0.3s;
+}
+.hero .download-button:hover {
+  background-color: #e0f6ff;
+}
+.hero .download-button > * {
+  margin: 0 5px;
+}
+.hero .download-button > img {
+  opacity: 0.1;
+}
 .yt-video {
   text-align: center;
 }
